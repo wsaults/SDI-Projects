@@ -12,7 +12,7 @@ var areYourBagsPacked = false,
 	canCleanWindSheild = undefined,
 	isWindShieldDirty = true,
 	isThereTraffic = true,
-	theOverseersName = "'the unseen one'",
+	theOverseersName = "'The unseen one'",
 	receptionistName = 'Ol\' McDonald',
 	manaPoints = 88;
 ;
@@ -24,13 +24,13 @@ var checkIfBagsArePacked = function (areYouPacked) {
 	// argument conditional
 	if (areYouPacked) {
 		// If true output something
-		console.log(theOverseersName.replace("t","T"),"is impressed that you've taken the initiative to pack your bags " + 
+		console.log(theOverseersName,"is impressed that you've taken the initiative to pack your bags " + 
 		"\nand has bestowed +1 luck upon your voyage to come!");
 	luck++;
 	} else {
 		// if false output something else
-		console.log(theOverseersName.replace("t","T"),"is not too happy with you. You forgot to pack your bags! " + 
-		"Bummer and \n",theOverseersName.replace("t","T"),"reduces your luck by 1");
+		console.log(theOverseersName,"is not too happy with you. You forgot to pack your bags! " + 
+		"Bummer and \n",theOverseersName,"reduces your luck by 1");
 	luck--;
 	}
 	// return
@@ -88,6 +88,19 @@ var refillManaPoints = function (m) {
 
 
 // String Function Declaration
+// takes two string arguments
+var getTheOverSeersBoast = function (nameOne, nameTwo) {
+	// stores arguments in local variables
+	var nameOne = nameOne,
+		nameTwo = nameTwo,
+		// string concatenation
+		combineTheNames = "Thinking about your grand adventure", nameOne, "admires his own cleverness " + 
+		"\nfor naming the hotel receptionist \"", nameTwo, "\" before you were even born."
+	;
+	
+	// return string
+	return combineTheNames;
+};
 
 // Array Function Declaration
 
