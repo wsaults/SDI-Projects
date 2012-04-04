@@ -13,7 +13,8 @@ var areYourBagsPacked = false,
 	isWindShieldDirty = true,
 	isThereTraffic = true,
 	theOverseersName = "'the unseen one'",
-	receptionistName = 'Ol\' McDonald'
+	receptionistName = 'Ol\' McDonald',
+	manaPoints = 88;
 ;
 	
 	
@@ -70,18 +71,21 @@ var checkIfYouCanWashYourWindSheild = function (hasWand, hasCleaningSolution) {
 
 // Number Function Declaration
 // takes one number argument
-var refillManaPoints = funciton (m) {
+var refillManaPoints = function (m) {
+	// stores argument in local variable
 	var mana = m;
+	// begin while loop
+	// while true
 	while (mana < 100) {
-		console.log("Your mana points were " + mana + " but now they are " + mana++ + ".");
+		// do some math and output
+		console.log("Your mana points were " + mana + " but now they are " + ++mana + ".");
+		// continue loop
 	}
+	
+	// when false return number
+	return mana;
 };
-// stores argument in local variable
-// begin while loop
-// if true
-// do some math and output
-// continue loop
-// if false return number
+
 
 // String Function Declaration
 
