@@ -14,9 +14,11 @@ var areYourBagsPacked = false,
 	isThereTraffic = true,
 	theOverseersName = "'The unseen one'",
 	receptionistName = 'Ol\' McDonald',
+	namesCombined = "",
 	manaPoints = 88,
 	startingChannel = 0,
-	flipingThroughChannels = ['The Brady Bunch','The Matrix','A local news channel','Mr. T trying to sell something','An oxyclean commercial','Entertainment Tonight']
+	theChannels = ['The Brady Bunch',' The Matrix',' A local news channel',' Mr. T trying to sell something',' An oxyclean commercial',' Entertainment Tonight'],
+	output = "";
 ;
 	
 // Procedure Declaration
@@ -71,7 +73,7 @@ var checkIfYouCanWashYourWindSheild = function (hasWandBool, hasCleaningSolution
 // takes one number argument
 var refillManaPoints = function (manaNum) {
 	// stores argument in local variable
-	var mana = num;
+	var mana = manaNum;
 	// begin while loop
 	// while true
 	while (mana < 100) {
@@ -91,7 +93,7 @@ var getTheOverSeersBoast = function (nameOneString, nameTwoString) {
 	var nameOne = nameOneString,
 		nameTwo = nameTwoString,
 		// string concatenation
-		combineTheNames = "Thinking about your grand adventure" + nameOne + "admires his own cleverness " + 
+		combineTheNames = "Thinking about your grand adventure " + nameOne + " admires his own cleverness " + 
 		"\nfor naming the hotel receptionist \""+ nameTwo + "\" before you were even born."
 	;
 	
@@ -126,12 +128,21 @@ checkIfBagsArePacked(areYourBagsPacked);
 isWindShieldDirty = checkIfYouCanWashYourWindSheild(isThereAWand,isThereCleaningSolution);
 
 // Number Function Call
+manaPoints = refillManaPoints(manaPoints);
 
 // String Function Call
+namesCombined = getTheOverSeersBoast(theOverseersName,receptionistName);
 
 // Array Function Call
-//flipingThroughChannels = flipThroughTheChannels(0,flipingThroughChannels);
+theChannels = flipThroughTheChannels(0,theChannels);
 
 // Combine return values
+output = "Is the wind shield dirty? ";
+output += isWindShieldDirty ? "Yes it is! \n" : "No, it's nice and clean \n";
+output += "Your total mana points equals: " + manaPoints;
+output += "\n" + namesCombined;
+output += "\nYou flipped through the channels and saw that " + theChannels + " was on TV.";
 
 // Output return values
+console.log(output);
+
