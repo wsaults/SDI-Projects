@@ -9,10 +9,11 @@ var areYourBagsPacked = false,
 	luck = 0,
 	isThereAWand = true,
 	isThereCleaningSolution = true,
+	canCleanWindSheild = undefined,
+	isWindShieldDirty = true,
 	isThereTraffic = true,
 	theOverseersName = "'the unseen one'",
-	receptionistName = 'Ol\' McDonald',
-	isWindShieldDirty = true
+	receptionistName = 'Ol\' McDonald'
 ;
 	
 	
@@ -37,6 +38,37 @@ var checkIfBagsArePacked = function (areYouPacked) {
 
 
 // Boolean Function Declaration
+// Takes two arguments
+var checkIfYouCanWashYourWindSheild = function (hasWand, hasCleaningSolution) {
+	// Compares the two arguments
+	if (hasWand && hasCleaningSolution) {
+			// If true output something
+			if (luck > 0) {
+				// Clean it.
+				console.log("Thank goodness there is a wand and cleaning solution here! You scrub away at your dirty windshield until it's clean.");
+				console.log("You hop in your car and realize that you can actually see the road. Hurray!");
+				canCleanWindSheild = true;
+				isWindShieldDirty = false;
+			} else {
+				// It stays dirty.
+				console.log("Well this is embarrassing. Due to your lousy luck you suffer from short-term memory loss and forget about cleaning the windshield.");
+				console.log("You hop in your car and strain to see the road. Bummer dude!");
+				canCleanWindSheild = false;
+			}
+		// If false output something else
+		} else {
+			// It stays dirty.
+			console.log("Well looks like someone didn't due their job. As a result you don't have what you need to clean your windshield.");
+			console.log("You hop in your car and strain to see the road. Bummer dude!");
+			canCleanWindSheild = false;
+		}
+	// Return boolean
+	return canCleanWindSheild;
+};
+
+
+
+
 
 
 // Number Function Declaration
