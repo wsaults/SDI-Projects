@@ -156,12 +156,13 @@ console.log("You've arrive at the hotel and walk to the reception counter");
 // Check the luck value
 if (luck > 0) {
 	console.log("The receptionist recognized you, calls you by name and hands you your room key. Awesome sauce!");
-	console.log("You politely thank the receptionist by his name, \"", receptionistName, "\" which is clearly printed on his name tag.");
+	console.log("You politely thank the receptionist by his name, \"" + receptionistName + "\" which is clearly printed on his name tag.");
 } else {
 	console.log("Due to your poor luck. . .");
 	console.log("Nobody is at the receptionist counter to greet you. In fact the place looks rather barren.");
 	console.log("You ding the reception bell for nearly an hour before someone arrives to greet you.");
-	console.log("With all your pent-up rage you explode your anger onto the receptionist, whos name is \"", receptionistName, "\" \nand let him know exactly how frustrated you are with the poor service of this hotel.");
+	console.log("With all your pent-up rage you explode your anger onto the receptionist, whos name is \"" + 
+	receptionistName, + "\" \nand let him know exactly how frustrated you are with the poor service of this hotel.");
 	
 	console.log("Hearing your tirade a manager appears from a sudden poof of smoke.");
 	console.log("Dressed in a Genie like attire and a name tag that says 'Property of Aladdin' the manager refunds the cost of your room.");
@@ -173,16 +174,16 @@ if (luck > 0) {
 			console.log("The manager also hands you your lost iPhone. It looks as good as new!");
 		} else {
 			console.log("The manager hands you a brand new iPad!");
-		};
+		}
 	} else {
 		console.log("The manager tops off your gas tank.")
 		if (luck < 0) {
 			console.log("The manager also hands you your lost iPhone. It looks as good as new!");
 		} else {
 			console.log("The manager hands you a brand new iPad!");
-		};
-	};
-};
+		}
+	}
+}
 
 console.log("After leaving the front desk and settling into your room you decide to flip on the television.");
 
