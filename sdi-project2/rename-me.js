@@ -121,11 +121,28 @@ var flipThroughTheChannels = function (num, array) {
 };
 
 
+
+// Vacation begins.
+console.log("\nIt's time for vacation! You have an epic journey ahead of you, lets get started!");
+
+console.log("You've just awoke from an amazing slumber and you realize that you've overslept, oh no!");
+
 // Procedure Call
 checkIfBagsArePacked(areYourBagsPacked);
 
+console.log("It's time to hit the road.");
+
+
+console.log("Checking your fuel meter you realize that you need gas. \nSo you stop to fill up.");
+
+console.log("You swipe your card at the pump and fill your gas tank.");
+doYouNeedGas = false;
+console.log("Ugh! What's that on your windshield??!! You should really clean that nasty thing!");
+		
 // Boolean Function Call
 isWindShieldDirty = checkIfYouCanWashYourWindSheild(isThereAWand,isThereCleaningSolution);
+
+console.log("You see a mana refill station and decide to top off your mana points before arriving at the hotel.");
 
 // Number Function Call
 manaPoints = refillManaPoints(manaPoints);
@@ -133,13 +150,52 @@ manaPoints = refillManaPoints(manaPoints);
 // String Function Call
 namesCombined = getTheOverSeersBoast(theOverseersName,receptionistName);
 
+// Check-in at the hotel.
+console.log("You've arrive at the hotel and walk to the reception counter");
+
+// Check the luck value
+if (luck > 0) {
+	console.log("The receptionist recognized you, calls you by name and hands you your room key. Awesome sauce!");
+	console.log("You politely thank the receptionist by his name, \"", receptionistName, "\" which is clearly printed on his name tag.");
+} else {
+	console.log("Due to your poor luck. . .");
+	console.log("Nobody is at the receptionist counter to greet you. In fact the place looks rather barren.");
+	console.log("You ding the reception bell for nearly an hour before someone arrives to greet you.");
+	console.log("With all your pent-up rage you explode your anger onto the receptionist, whos name is \"", receptionistName, "\" \nand let him know exactly how frustrated you are with the poor service of this hotel.");
+	
+	console.log("Hearing your tirade a manager appears from a sudden poof of smoke.");
+	console.log("Dressed in a Genie like attire and a name tag that says 'Property of Aladdin' the manager refunds the cost of your room.");
+	if (isWindShieldDirty) {
+		console.log("The manager cleans your windshield for you");
+		isWindShieldDirty = false;
+		console.log("and tops off your gas tank. Yay!")
+		if (luck < 0) {
+			console.log("The manager also hands you your lost iPhone. It looks as good as new!");
+		} else {
+			console.log("The manager hands you a brand new iPad!");
+		};
+	} else {
+		console.log("The manager tops off your gas tank.")
+		if (luck < 0) {
+			console.log("The manager also hands you your lost iPhone. It looks as good as new!");
+		} else {
+			console.log("The manager hands you a brand new iPad!");
+		};
+	};
+};
+
+console.log("After leaving the front desk and settling into your room you decide to flip on the television.");
+
 // Array Function Call
 theChannels = flipThroughTheChannels(0,theChannels);
 
+console.log("Feeling the heavy drain of a busy day your eyelids shut and you drift into a deep sleep.\n\n");
+
 // Combine return values
-output = "Is the wind shield dirty? ";
-output += isWindShieldDirty ? "Yes it is! \n" : "No, it's nice and clean \n";
-output += "Your total mana points equals: " + manaPoints;
+output = "Trip Summary:\n"
+output += "Is the wind shield dirty? ";
+output += isWindShieldDirty ? "Yes it is! \n" : "No, it's nice and clean. \n";
+output += "Your total mana points equals: " + manaPoints + ".";
 output += "\n" + namesCombined;
 output += "\nYou flipped through the channels and saw that " + theChannels + " was on TV.";
 
