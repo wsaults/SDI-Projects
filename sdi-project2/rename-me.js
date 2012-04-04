@@ -68,10 +68,20 @@ var checkIfYouCanWashYourWindSheild = function (hasWand, hasCleaningSolution) {
 
 
 
-
-
-
 // Number Function Declaration
+// takes one number argument
+var refillManaPoints = funciton (m) {
+	var mana = m;
+	while (mana < 100) {
+		console.log("Your mana points were " + mana + " but now they are " + mana++ + ".");
+	}
+};
+// stores argument in local variable
+// begin while loop
+// if true
+// do some math and output
+// continue loop
+// if false return number
 
 // String Function Declaration
 
