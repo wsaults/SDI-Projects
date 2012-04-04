@@ -43,13 +43,13 @@ var checkIfBagsArePacked = function (areYouPackedBool) {
 var checkIfYouCanWashYourWindSheild = function (hasWandBool, hasCleaningSolutionBool) {
 	// Compares the two arguments
 	if (hasWandBool && hasCleaningSolutionBool) {
+			var canCleanWindSheild;
 			// If true output something
 			if (luck > 0) {
 				// Clean it.
 				console.log("Thank goodness there is a wand and cleaning solution here! You scrub away at your dirty windshield until it's clean.");
 				console.log("You hop in your car and realize that you can actually see the road. Hurray!");
 				canCleanWindSheild = true;
-				isWindShieldDirty = false;
 			} else {
 				// It stays dirty.
 				console.log("Well this is embarrassing. Due to your lousy luck you suffer from short-term memory loss and forget about cleaning the windshield.");
@@ -64,7 +64,7 @@ var checkIfYouCanWashYourWindSheild = function (hasWandBool, hasCleaningSolution
 			canCleanWindSheild = false;
 		}
 	// Return boolean
-	return canCleanWindSheild;
+	return !canCleanWindSheild;
 };
 
 // Number Function Declaration
@@ -119,14 +119,11 @@ var flipThroughTheChannels = function (num, array) {
 };
 
 
-
-
-
-
-
 // Procedure Call
+checkIfBagsArePacked(areYourBagsPacked);
 
 // Boolean Function Call
+isWindShieldDirty = checkIfYouCanWashYourWindSheild(isThereAWand,isThereCleaningSolution);
 
 // Number Function Call
 
