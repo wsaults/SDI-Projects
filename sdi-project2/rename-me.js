@@ -14,15 +14,16 @@ var areYourBagsPacked = false,
 	isThereTraffic = true,
 	theOverseersName = "'The unseen one'",
 	receptionistName = 'Ol\' McDonald',
-	manaPoints = 88;
+	manaPoints = 88,
+	startingChannel = 0,
+	flipingThroughChannels = ['The Brady Bunch','The Matrix','A local news channel','Mr. T trying to sell something','An oxyclean commercial','Entertainment Tonight']
 ;
-	
 	
 // Procedure Declaration
 // Takes an argument
-var checkIfBagsArePacked = function (areYouPacked) {
+var checkIfBagsArePacked = function (areYouPackedBool) {
 	// argument conditional
-	if (areYouPacked) {
+	if (areYouPackedBool) {
 		// If true output something
 		console.log(theOverseersName,"is impressed that you've taken the initiative to pack your bags " + 
 		"\nand has bestowed +1 luck upon your voyage to come!");
@@ -37,12 +38,11 @@ var checkIfBagsArePacked = function (areYouPacked) {
 	return;
 };
 
-
 // Boolean Function Declaration
 // Takes two arguments
-var checkIfYouCanWashYourWindSheild = function (hasWand, hasCleaningSolution) {
+var checkIfYouCanWashYourWindSheild = function (hasWandBool, hasCleaningSolutionBool) {
 	// Compares the two arguments
-	if (hasWand && hasCleaningSolution) {
+	if (hasWandBool && hasCleaningSolutionBool) {
 			// If true output something
 			if (luck > 0) {
 				// Clean it.
@@ -67,13 +67,11 @@ var checkIfYouCanWashYourWindSheild = function (hasWand, hasCleaningSolution) {
 	return canCleanWindSheild;
 };
 
-
-
 // Number Function Declaration
 // takes one number argument
-var refillManaPoints = function (m) {
+var refillManaPoints = function (manaNum) {
 	// stores argument in local variable
-	var mana = m;
+	var mana = num;
 	// begin while loop
 	// while true
 	while (mana < 100) {
@@ -86,16 +84,15 @@ var refillManaPoints = function (m) {
 	return mana;
 };
 
-
 // String Function Declaration
 // takes two string arguments
-var getTheOverSeersBoast = function (nameOne, nameTwo) {
+var getTheOverSeersBoast = function (nameOneString, nameTwoString) {
 	// stores arguments in local variables
-	var nameOne = nameOne,
-		nameTwo = nameTwo,
+	var nameOne = nameOneString,
+		nameTwo = nameTwoString,
 		// string concatenation
-		combineTheNames = "Thinking about your grand adventure", nameOne, "admires his own cleverness " + 
-		"\nfor naming the hotel receptionist \"", nameTwo, "\" before you were even born."
+		combineTheNames = "Thinking about your grand adventure" + nameOne + "admires his own cleverness " + 
+		"\nfor naming the hotel receptionist \""+ nameTwo + "\" before you were even born."
 	;
 	
 	// return string
@@ -103,6 +100,27 @@ var getTheOverSeersBoast = function (nameOne, nameTwo) {
 };
 
 // Array Function Declaration
+// takes a number argument and an array argument
+var flipThroughTheChannels = function (num, array) {
+	// stores arguments in localvariables
+	var channel = num,
+		channelsToFlipThrough = array
+	;
+	
+	// start for loop
+	
+	for (var i = 0, arrayLength = channelsToFlipThrough.length(); i < arrayLength; i++) {
+		// while true do some math and output
+		console.log("You turn to channel " + i + " and see that " + channelsToFlipThrough[i] + " is playing.");
+	}
+	
+	// when false return array
+	return channelsToFlipThrough;
+};
+
+
+
+flipThroughTheChannels(flipingThroughChannels);
 
 
 
