@@ -109,9 +109,9 @@ var flipThroughTheChannels = function (num, array) {
 	
 	// start for loop
 	
-	for (var i = 0, arrayLength = channelsToFlipThrough.length(); i < arrayLength; i++) {
+	for (var i = 0; i < (channelsToFlipThrough.length)-1; i++) {
 		// while true do some math and output
-		console.log("You turn to channel " + i + " and see that " + channelsToFlipThrough[i] + " is playing.");
+		console.log("You turn to channel " + i+2 + " and see that " + channelsToFlipThrough[i] + " is playing.");
 	}
 	
 	// when false return array
@@ -120,7 +120,7 @@ var flipThroughTheChannels = function (num, array) {
 
 
 
-flipThroughTheChannels(flipingThroughChannels);
+
 
 
 
@@ -133,6 +133,7 @@ flipThroughTheChannels(flipingThroughChannels);
 // String Function Call
 
 // Array Function Call
+//flipingThroughChannels = flipThroughTheChannels(0,flipingThroughChannels);
 
 // Combine return values
 
