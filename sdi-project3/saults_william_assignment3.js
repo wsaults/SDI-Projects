@@ -5,37 +5,54 @@
 
 
 
-var student = function (firstName, lastName, age, bool, array) {
+var student = function (firstName, lastName, age, bool, array,json) {
 
 	var studentClasses = array
 	var addClass = function (newClass) {
 		studentClasses.push(newClass);
 	};
-	var getClasses = function () {
+	var listClasses = function () {
 		for (var i = 0; i < studentClasses.length; i++) {
 			console.log("Class " + i + " is " + studentClasses[i]);
 		}
 	};
-	var shoutName = function () {
-		console.log("MY NAME IS " + firstName.toUpperCase() + "!!!!");
+	var getFirstName = function () {
+		return firstName
 	};
-	
 	return {
 	// Properties: Boolean, Array, Number, String, Object
-		"firstName": firstName,
+		"getFirstName": getFirstName,
 		"lastName": lastName,
 		"age": age,
 		"isMale": bool,
 		"classes": studentClasses,
-		"getClasses":getClasses,
-		"shoutName":shoutName,
-		"addClass":addClass
+		"listClasses":listClasses,
+		"addClass":addClass,
+		"info":json
 	};
 };
 
 // Global Variables
-var luck = 0,
-	temperature = 75
+var yourAge = 89,
+	yourClasses = ["English","Spanish","History","Objective-C","JavaScript"],
+	temperature = 75,
+	studentInfo = {
+	
+		"lunchFood": [
+			{
+				"Description": "Banana",
+				"Quantity": 2
+			},
+			{
+				"Description": "Sandwich",
+				"Quantity": 1
+			},
+			{
+				"Description": "Muffin",
+				"Quantity": 1
+			}
+		]
+	}
 ;
 
 // The story begins
@@ -45,15 +62,16 @@ console.log("Oh look a new student!");
 
 // Arguments: Boolean, Array, Number, String, Object
 // Returned values
-var newStudent = student ("Harley", "Quinn", 89, false, ["English","Spanish","History","Objective-C","JavaScript"]);
-
+var newStudent = student ("Harley", "Quinn", yourAge, false, yourClasses, studentInfo.lunchFood);
+var name = newStudent.getFirstName();
 
 // Conditional
 if(newStudent.firstName = "Harley") {
-	console.log("Hello " + newStudent.firstName + ", welcome to class!");
+	console.log("Hello " + name + ", welcome to class!");
 	
 	console.log("Shout your name for the class please.");
-	newStudent.shoutName();
+	
+	console.log("MY NAME IS " + name.toUpperCase() + "!!!!");
 	
 	console.log("Gooood, that's good. Now please state your age.");
 	
@@ -70,7 +88,7 @@ if(newStudent.firstName = "Harley") {
 			newStudent.age--;
 		}
 		
-		console.log("The instructor gives " + newStudent.firstName + " a peculiar potion. POOF!!!");
+		console.log("The instructor gives " + name + " a peculiar potion. POOF!!!");
 		console.log("There your age is " + newStudent.age + ".");
 		console.log("Now you'll fit right in.");
 	} else {
@@ -81,10 +99,21 @@ if(newStudent.firstName = "Harley") {
 	console.log("Who are you? You arn't the new student!");
 }
 
-console.log("So " + newStudent.firstName + " what classes are you in?");
-newStudent.getClasses();
+console.log("So " + name + " what classes are you in?");
+newStudent.listClasses();
 
 console.log("Oh well lets add Geometry to that!");
 newStudent.addClass("Geometry");
 console.log("Now your classes are:");
-newStudent.getClasses();
+newStudent.listClasses();
+
+console.log("Okay, now we are set. Lets continue with class!");
+console.log("Oh, one last thing!");
+console.log("Lets see your lunch.");
+console.log(newStudent.info);
+console.log("Now lets see your lunch in string format.");
+var string = JSON.stringify(newStudent.info);
+console.log(string);
+
+console.log("Very good! Now lets cancel class today. Go make apps!");
+
