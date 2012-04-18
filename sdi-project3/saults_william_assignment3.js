@@ -5,14 +5,30 @@
 
 
 
-var student = function (firstName, lastName, age, bool) {
+var student = function (firstName, lastName, age, bool, array) {
+
+	var studentClasses = array
+	var addClass = function (newClass) {
+		studentClasses.push(newClass);
+	};
+	var getClasses = function () {
+		for (var i = 0; i < studentClasses.length; i++) {
+			console.log("Class " + i + " is " + studentClasses[i]);
+		}
+	};
+	var shoutName = function () {
+		console.log("MY NAME IS " + firstName.toUpperCase() + "!!!!");
+	};
 	
 	return {
 	// Properties: Boolean, Array, Number, String, Object
 		"firstName": firstName,
 		"lastName": lastName,
 		"age": age,
-		"isMale": bool
+		"isMale": bool,
+		"classes": studentClasses,
+		"getClasses":getClasses,
+		"shoutName":shoutName
 	};
 };
 
@@ -21,13 +37,26 @@ var luck = 0,
 	temperature = 75
 ;
 
+// The story begins
+console.log("Hello everyone welcome back to class.");
+console.log("Lets get started!");
+console.log("Oh look a new student!");
+
 // Arguments: Boolean, Array, Number, String, Object
-var newStudent = student ("Harley", "Quinn", 22, false);
+var newStudent = student ("Harley", "Quinn", 89, false, ["English","Spanish","History","Objective-C","JavaScript"]);
 
 
 // Conditional
 if(newStudent.firstName = "Harley") {
 	console.log("Hello " + newStudent.firstName + ", welcome to class!");
+	
+	console.log("Shout your name for the class please.");
+	newStudent.shoutName();
+	
+	console.log("Gooood, that's good. Now please state your age.");
+	
+	console.log("I am " + newStudent.age + " years old.");
+
 	
 	// Nested Conditional
 	if(newStudent.age > 18) {
@@ -41,4 +70,6 @@ if(newStudent.firstName = "Harley") {
 	console.log("Who are you? You arn't the new student!");
 }
 
+console.log("So " + newStudent.firstName + " what classes are you in?");
+newStudent.getClasses();
 
