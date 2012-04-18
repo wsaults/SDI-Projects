@@ -80,7 +80,7 @@ if(newStudent.firstName = "Harley") {
 	
 	// Nested Conditional
 	if(newStudent.age > 18) {
-		console.log("What!?! you're " + newStudent.age + " years old! Arn't you a little old for this class?");
+		console.log("What!?! You're " + newStudent.age + " years old! Aren't you a little old for this class?");
 		// Nested Loop
 		// While Loop
 		// Math
