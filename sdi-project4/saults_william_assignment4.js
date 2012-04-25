@@ -36,23 +36,20 @@
 // My JS Lib
 var willsLib = function () {
 	// Private methods
-	var exampleFunc = function (param1, param2) {
 	
-	};
-	
-	var exampleFunc2 = function (param1, param2) {
-	
-	};
-
+/* 	Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10 - params: (decimal, #ofPlaces) result = num.toFixed(2); */
+	var numberFormater = function (n, numberOfPlaces) {
+		var result = n.toFixed(numberOfPlaces);
+		return result;
+	}
 	
 	
 	// Public methods & properties
 	return {
-		"example"  : example,
-		"exampleFunc2" : exampleFunc2
+		"numberFormater"  : numberFormater
 	};
 };
 
 var lib = willsLib();
-var exampleArray = ["String1", "String2", "String3"];
-console.log(lib.exampleFunc2(exampleArray, " and "));
+var formattedNumber = lib.numberFormater(2.1, 2);
+console.log(formattedNumber);
