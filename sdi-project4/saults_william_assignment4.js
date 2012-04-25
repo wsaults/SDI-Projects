@@ -16,7 +16,7 @@
 6*    Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10 - params: (decimal, #ofPlaces) result = num.toFixed(2);
 7    Fuzzy-match a number: is the number above or below a number within a certain percent?
 8    Find the number of hours or days difference between two dates.
-9    Given a string version of a number such as "42", return the value as an actual Number, such as 42.
+9*    Given a string version of a number such as "42", return the value as an actual Number, such as 42.
 */
 
 /* Array
@@ -36,6 +36,7 @@
 var willsLib = function () {
 	// Private methods
 	
+	
 /* 	3    Is the string a URL? (Does it start with http: or https:?) */
 /* ================================================================================================ */
 	var isURL = function (str) {
@@ -51,6 +52,7 @@ var willsLib = function () {
 	
 	return result;
 	}
+	
 	
 /* 	4    Title-case a string (split into words, then uppercase the first letter of each word) */
 /* ================================================================================================ */
@@ -68,6 +70,7 @@ var willsLib = function () {
 		return result;
 	}
 	
+	
 /* 	5    Given a string that is a list of things separated by a given string, as well as another string separator, 
 		 return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c". */
 /* ================================================================================================ */
@@ -77,6 +80,7 @@ var willsLib = function () {
 		return result;
 	};
 	
+	
 /*  6 	Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10 
 		- params: (decimal, #ofPlaces) result = num.toFixed(2); */
 /* ================================================================================================ */
@@ -84,6 +88,41 @@ var willsLib = function () {
 		var result = num.toFixed(numberOfPlaces);
 		return result;
 	}
+	
+/* 	8    Find the number of hours or days difference between two dates. */
+	var findDate = function(d1, d2, daysOrHours) {
+		var result = 0,
+			days = 24*60*60*1000, // hours*minutes*seconds*milliseconds	
+			hours  = 60*60*1000 	// minutes*seconds*milliseconds
+		;
+		
+		switch(daysOrHours)
+		{
+			case 2:
+			  // return hours
+			  result = Math.abs((d1.getTime() - d2.getTime())/(hours));
+			  break;
+			  
+			default:
+			  // return days
+			  result = Math.abs((d1.getTime() - d2.getTime())/(days));
+		}
+		
+		return result;
+	}
+	
+	
+/* 	9    Given a string version of a number such as "42", return the value as an actual Number, such as 42. */
+/* ================================================================================================ */
+	var strToNum = function (str) {
+	var result = parseInt(str);
+	
+	return result;
+	}
+
+	// I am here!
+	// parseInt!
+
 	
 /* 	10    Find the smallest value in an array that is greater than a given number params: array, numberToFind */
 /* ================================================================================================ */
@@ -109,6 +148,7 @@ var willsLib = function () {
 	return result;
 	};
 	
+	
 /* 	11    Find the total value of just the numbers in an array, even if some of the items are not numbers. */
 /* ================================================================================================ */
 	var totalArrayRecall = function (array) {
@@ -131,6 +171,8 @@ var willsLib = function () {
 		"titleCase"				  : titleCase,
 		"findAndReplaceDelimiter" : findAndReplaceDelimiter,
 		"numberFormater"  		  : numberFormater,
+		"findDate"				  : findDate,
+		"strToNum"				  : strToNum,	
 		"justALittleGreater"	  : justALittleGreater,
 		"totalArrayRecall"		  :	totalArrayRecall
 	};
@@ -166,13 +208,30 @@ var formattedNumber = lib.numberFormater(2.1, 2);
 console.log(formattedNumber);
 */
 
+// 8
+var date1 = new Date(1987,02,18);
+var date2 = new Date();
+// Pass in 1 for days and 2 for hours
+var difference = lib.findDate(date1,date2,1);
+console.log("The difference is: " + lib.numberFormater(difference, 2));
+
+/*
+// 9
+var str = "88";
+var strToNum = lib.strToNum(str);
+console.log(str + 1);
+console.log(strToNum + 1);
+*/
+
 /*
 // 10
 var numFinder = lib.justALittleGreater([3,10,55,36,19,21,22,1,9,77,99,54,33,7],20)
 console.log(numFinder + " Is the closest greater number.");
 */
 
+/*
 // 11
 var array = [3,10,55,36,"4",19,21,22,"5",1,9,77,99,"d",54,33,7];
 var total = lib.totalArrayRecall(array);
 console.log("The total is: " + total);
+*/
