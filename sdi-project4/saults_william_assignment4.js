@@ -7,7 +7,7 @@
 1    Does a string follow a 123-456-7890 pattern like a phone number?
 2    Does a string follow an aaa@bbb.ccc pattern like an email address?
 3    Is the string a URL? (Does it start with http: or https:?)
-4    Title-case a string (split into words, then uppercase the first letter of each word)
+4*    Title-case a string (split into words, then uppercase the first letter of each word)
 5*    Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 
 */
@@ -35,6 +35,21 @@
 // My JS Lib
 var willsLib = function () {
 	// Private methods
+	
+/* 	3    Is the string a URL? (Does it start with http: or https:?) */
+	var isURL = function (str) {
+	var result;
+	
+	if (str.substring(0,5) === "http:") {
+		result = true;
+	} else if (str.substring(0,6) === "https:") {
+		result = true;	
+	} else {
+		result = false;
+	}
+	
+	return result;
+	}
 	
 /* 	4    Title-case a string (split into words, then uppercase the first letter of each word) */
 /* ================================================================================================ */
@@ -98,6 +113,7 @@ var willsLib = function () {
 	
 	// Public methods & properties
 	return {
+		"isURL"					  : isURL,
 		"titleCase"				  : titleCase,
 		"findAndReplaceDelimiter" : findAndReplaceDelimiter,
 		"numberFormater"  		  : numberFormater,
@@ -105,24 +121,21 @@ var willsLib = function () {
 	};
 };
 
-
-/*
-is 3 greater than 20 
-no do nothing
-is 10 greater than 20
-no do nothing
-is 55 greater than 20
-yes result = 55
-is 36 greater than 20 but less than 55
-yes result = 36
-*/
-
-
 var lib = willsLib();
 
+// 3
+var url = "http://www.facebook.com",
+	urlSecure = "https://www.chase.com",
+	notURL = "www.someThingUnknown.com" // Probably exists. I'm not gonna look, lol.
+;
+var bool = lib.isURL(url);
+console.log("Is it a URL? " + bool);
+
+/*
 // 4
 var titleCasedStr = lib.titleCase("99 mobile apps on the wall, 99 mobile apps. . .");
 console.log(titleCasedStr);
+*/
 
 /*
 // 5
