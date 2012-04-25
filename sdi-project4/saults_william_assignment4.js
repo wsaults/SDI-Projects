@@ -6,7 +6,7 @@
 /* String
 1    Does a string follow a 123-456-7890 pattern like a phone number?
 2    Does a string follow an aaa@bbb.ccc pattern like an email address?
-3    Is the string a URL? (Does it start with http: or https:?)
+3*    Is the string a URL? (Does it start with http: or https:?)
 4*    Title-case a string (split into words, then uppercase the first letter of each word)
 5*    Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 
@@ -21,7 +21,7 @@
 
 /* Array
 10*    Find the smallest value in an array that is greater than a given number
-11    Find the total value of just the numbers in an array, even if some of the items are not numbers.
+11*    Find the total value of just the numbers in an array, even if some of the items are not numbers.
 12    Given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] → [{a:1},{a:2},{a:3}].
 
 */
@@ -37,6 +37,7 @@ var willsLib = function () {
 	// Private methods
 	
 /* 	3    Is the string a URL? (Does it start with http: or https:?) */
+/* ================================================================================================ */
 	var isURL = function (str) {
 	var result;
 	
@@ -92,7 +93,6 @@ var willsLib = function () {
 		diffArray = []
 	;
 	
-	// How about a difference array where i grab the difference of each i - num and take the lowest positive number?
 	for (var i = 0; i < numArray.length; i++) {
 		difference += numArray[i];
 		diffArray.push(numArray[i] - num);
@@ -109,6 +109,20 @@ var willsLib = function () {
 	return result;
 	};
 	
+/* 	11    Find the total value of just the numbers in an array, even if some of the items are not numbers. */
+/* ================================================================================================ */
+	var totalArrayRecall = function (array) {
+		var result = 0;
+		
+		for (var i = 0; i < array.length; i++) {
+			if (!isNaN(array[i])) {
+/* 				console.log(array[i]); */
+				result += parseInt(array[i]);
+			}	
+		}
+		return result;
+	}
+	
 	
 	
 	// Public methods & properties
@@ -117,12 +131,14 @@ var willsLib = function () {
 		"titleCase"				  : titleCase,
 		"findAndReplaceDelimiter" : findAndReplaceDelimiter,
 		"numberFormater"  		  : numberFormater,
-		"justALittleGreater"	  : justALittleGreater	
+		"justALittleGreater"	  : justALittleGreater,
+		"totalArrayRecall"		  :	totalArrayRecall
 	};
 };
 
 var lib = willsLib();
 
+/*
 // 3
 var url = "http://www.facebook.com",
 	urlSecure = "https://www.chase.com",
@@ -130,6 +146,7 @@ var url = "http://www.facebook.com",
 ;
 var bool = lib.isURL(url);
 console.log("Is it a URL? " + bool);
+*/
 
 /*
 // 4
@@ -154,3 +171,8 @@ console.log(formattedNumber);
 var numFinder = lib.justALittleGreater([3,10,55,36,19,21,22,1,9,77,99,54,33,7],20)
 console.log(numFinder + " Is the closest greater number.");
 */
+
+// 11
+var array = [3,10,55,36,"4",19,21,22,"5",1,9,77,99,"d",54,33,7];
+var total = lib.totalArrayRecall(array);
+console.log("The total is: " + total);
