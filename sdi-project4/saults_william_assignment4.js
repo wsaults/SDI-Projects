@@ -89,7 +89,9 @@ var willsLib = function () {
 		return result;
 	}
 	
+	
 /* 	8    Find the number of hours or days difference between two dates. */
+/* ================================================================================================ */
 	var findDate = function(d1, d2, daysOrHours) {
 		var result = 0,
 			days = 24*60*60*1000, // hours*minutes*seconds*milliseconds	
@@ -119,9 +121,6 @@ var willsLib = function () {
 	
 	return result;
 	}
-
-	// I am here!
-	// parseInt!
 
 	
 /* 	10    Find the smallest value in an array that is greater than a given number params: array, numberToFind */
@@ -167,6 +166,7 @@ var willsLib = function () {
 	
 	// Public methods & properties
 	return {
+		"validPhoneNum"			  : validPhoneNum,
 		"isURL"					  : isURL,
 		"titleCase"				  : titleCase,
 		"findAndReplaceDelimiter" : findAndReplaceDelimiter,
@@ -208,12 +208,14 @@ var formattedNumber = lib.numberFormater(2.1, 2);
 console.log(formattedNumber);
 */
 
+/*
 // 8
 var date1 = new Date(1987,02,18);
 var date2 = new Date();
 // Pass in 1 for days and 2 for hours
 var difference = lib.findDate(date1,date2,1);
 console.log("The difference is: " + lib.numberFormater(difference, 2));
+*/
 
 /*
 // 9
